@@ -68,22 +68,89 @@ PROTO DoubleStripedDoors[
 				]
 			}
 
-			LeftStripedDoor{
-				bodyColor IS bodyColor
-			}	
+			DEF	leftDoorDefinition Transform {
+				children [
+					LeftStripedDoor{
+						bodyColor IS bodyColor
+					}
+				]
+			}
+				
 		
 			Transform
 			{
 				translation	0.96 0 0
 				children
 				[
-					RightStripedDoor {
-						bodyColor IS bodyColor
-						doorHandleColor	IS doorHandleColor
-						glassColor IS glassColor
+					DEF	rightDoorDefinition Transform {
+						children [
+							RightStripedDoor {
+								bodyColor IS bodyColor
+								doorHandleColor	IS doorHandleColor
+								glassColor IS glassColor
+							}
+						]
 					}
 				]
 			}
-		] 
+			DEF	touchSensorDefinition TouchSensor{
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoors
+				field SFBool isOpen FALSE
+				field SFNode leftDoor USE leftDoorDefinition
+				field SFNode rightDoor USE rightDoorDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoors(action){
+						if(action){
+							if(isOpen){
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = 0
+								leftDoor.translation[z] = 0
+								leftDoor.translation[x] = 0
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = 0
+								rightDoor.translation[z] = 0
+								rightDoor.translation[x] = 0
+								
+									
+							}
+							else{
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = openDegree
+								leftDoor.translation[z] = -0.25
+								leftDoor.translation[x] = -0.17
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = - openDegree
+								rightDoor.translation[z] = -0.75
+								rightDoor.translation[x] = 0.53	
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
+		]
+	   ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoors
 	}
 }

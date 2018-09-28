@@ -4,7 +4,7 @@ PROTO GlassPanel[
 	exposedField SFColor steelColor 0.39 0.8 0.95
 	exposedField SFColor glassColor 0 0 0
 ]{
-	Transform{
+	DEF glassPanelDefinition Transform{
 		children[
 			Shape {
 				appearance	Appearance {
@@ -185,13 +185,7 @@ PROTO GlassWindow[
 {
 	Transform{
 		children [
-			GlassPanel{
-				glassColor IS glassColor
-				steelColor IS steelColor
-			}
-
-			Transform {
-				translation	.575 0 0
+			DEF glassPanelI Transform{
 				children [
 					GlassPanel{
 						glassColor IS glassColor
@@ -199,13 +193,31 @@ PROTO GlassWindow[
 					}
 				]
 			}
+			
+			Transform {
+				translation	.575 0 0
+				children [
+					DEF glassPanelII Transform{
+						children [
+							GlassPanel{
+								glassColor IS glassColor
+								steelColor IS steelColor
+							}
+						]
+					}
+				]
+			}
 
 			Transform {
 				translation	1.15 0 0
 				children [
-					GlassPanel{
-						glassColor IS glassColor
-						steelColor IS steelColor
+					DEF glassPanelIII Transform{
+						children [
+							GlassPanel{
+								glassColor IS glassColor
+								steelColor IS steelColor
+							}
+						]
 					}
 				]
 			}
@@ -269,6 +281,65 @@ PROTO GlassWindow[
 					}
 				]
 			}
+			DEF	touchSensorDefinition TouchSensor {
+				enabled	TRUE
+			}
+			DEF	scriptDefinition Script {
+
+				eventIn	SFBool touchedPanel
+				field SFBool isOpen FALSE
+				field SFNode glassPanelI USE glassPanelI
+				field SFNode glassPanelII USE glassPanelII
+				field SFNode glassPanelIII USE glassPanelIII
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 0.8
+
+
+				url	"javascript:
+					function touchedPanel(action)
+					{
+						if(action)
+						{
+							if(isOpen)
+							{
+								glassPanelI.rotation[x] = 0
+								glassPanelI.rotation[y] = 1
+								glassPanelI.rotation[z] = 0
+								glassPanelI.rotation[value] = 0
+								glassPanelII.rotation[x] = 0
+								glassPanelII.rotation[y] = 1
+								glassPanelII.rotation[z] = 0
+								glassPanelII.rotation[value] = 0
+								glassPanelIII.rotation[x] = 0
+								glassPanelIII.rotation[y] = 1
+								glassPanelIII.rotation[z] = 0
+								glassPanelIII.rotation[value] = 0
+							}
+							else
+							{
+								glassPanelI.rotation[x] = 0
+								glassPanelI.rotation[y] = 1
+								glassPanelI.rotation[z] = 0
+								glassPanelI.rotation[value] = openDegree
+								glassPanelII.rotation[x] = 0
+								glassPanelII.rotation[y] = 1
+								glassPanelII.rotation[z] = 0
+								glassPanelII.rotation[value] = openDegree
+								glassPanelIII.rotation[x] = 0
+								glassPanelIII.rotation[y] = 1
+								glassPanelIII.rotation[z] = 0
+								glassPanelIII.rotation[value] = openDegree
+							}
+							isOpen = !isOpen
+						}
+					}
+				"
+			}
 		]
+		ROUTE touchSensorDefinition.isActive TO scriptDefinition.touchedPanel
 	}	
 }

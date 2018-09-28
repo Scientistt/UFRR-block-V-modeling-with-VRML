@@ -24,19 +24,7 @@ PROTO CircuitBreaker[
 				}
 			}
 			
-			Shape {
-				appearance Appearance {
-					material Material {
-						diffuseColor IS	mainColor
-					}
-			
-				}
-				geometry Box {
-					size .4 .6 0.02
-				}
-			}
-			Transform {
-				translation	-.19 0 0
+			DEF	doorDefinition Transform {
 				children [
 					Shape {
 						appearance Appearance {
@@ -45,36 +33,70 @@ PROTO CircuitBreaker[
 							}
 			
 						}
-						geometry Sphere {
-							radius 0.025
+						geometry Box {
+							size .4 .6 0.02
 						}
-					}	
+					}
+					Transform {
+						translation	-.19 0 0
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	mainColor
+									}
+			
+								}
+								geometry Sphere {
+									radius 0.025
+								}
+							}	
+						]
+					}
+					Transform {
+						rotation 0 0 1 1.57
+						translation	-.15 .15 0.02
+						children [
+							Transform {
+								children [
+									Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor IS brandColor
+											}
+	
+										}
+										geometry Text {
+											string IS brand
+											fontStyle FontStyle {
+												justify	"MIDDLE"
+												style "ITALIC"
+												size 0.05
+											}
+										}
+									}
+								]
+							}
+						]
+					}
 				]
 			}
 			Transform {
-				rotation 0 0 1 1.57
-				translation	-.15 .15 0.02
+				translation	0 0 0.0025
 				children [
 					Shape {
 						appearance Appearance {
 							material Material {
-								diffuseColor IS brandColor
+								diffuseColor 0 0 0
 							}
-	
+			
 						}
-						geometry Text {
-							string IS brand
-							fontStyle FontStyle {
-								justify	"MIDDLE"
-								style "ITALIC"
-								size 0.05
-							}
+						geometry Box {
+							size .4 .6 0.01
 						}
 					}
-
 				]
-			}
-			
+			}			
 			Transform {
 				translation	0 .32 0
 				children [
@@ -114,6 +136,47 @@ PROTO CircuitBreaker[
 						
 				]
 			}
+		 DEF	touchSensorDefinition TouchSensor{
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoor
+				field SFBool isOpen FALSE
+				field SFNode door USE doorDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoor(action){
+						if(action){
+							if(isOpen){
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = 0
+								door.translation[z] = 0
+								door.translation[x] = 0
+							}
+							else{
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = openDegree
+								door.translation[z] = .17
+								door.translation[x] = 0.13
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
 		]
+	   ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
 	}
 }
