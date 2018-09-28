@@ -15,6 +15,54 @@ PROTO DoubleEmergencyDoor[
 	Transform{
 		children[
 
+			Transform{
+				translation	0.5 1.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 2.1 0.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	-0.53 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	1.545 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
 
 			DEF	leftDoorDefinition Transform {
 				children [
