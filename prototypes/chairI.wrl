@@ -1,6 +1,6 @@
 #VRML V2.0 utf8
 
-PROTO chairI[
+PROTO ChairI[
 	exposedField SFColor mainColor .7 .7 .7
 	exposedField SFColor detailsColor 0 0 0
 
@@ -234,6 +234,3 @@ PROTO chairI[
 		]
 	}
 }
-
-
-chairI{}

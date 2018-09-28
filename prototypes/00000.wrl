@@ -71,15 +71,27 @@ EXTERNPROTO DoubleEmergencyDoor[
 
 
 
-EXTERNPROTO chairI[
+EXTERNPROTO ChairI[
 	exposedField SFColor mainColor
 	exposedField SFColor detailsColor
 
-]["chairI.wrl"]
+]["ChairI.wrl"]
+
+EXTERNPROTO ChairIPack[
+	exposedField SFColor mainColor
+	exposedField SFColor detailsColor	
+]["ChairIPack.wrl"]
 
 
 
 
+
+Transform {
+	translation	-20 0 0
+	children [
+		ChairIPack {}
+	]
+}
 
 Transform {
 	translation	-9 0 0
@@ -91,7 +103,7 @@ Transform {
 Transform {
 	translation	-6 0 0
 	children [
-		chairI {}
+		ChairI {}
 	]
 }
 
@@ -140,6 +152,12 @@ Transform {
 
 ##################
 
+Transform {
+	translation	-20 0 -2
+	children [
+		ChairIPack {}
+	]
+}
 
 Transform {
 	translation	-9 0 -2
@@ -151,7 +169,7 @@ Transform {
 Transform {
 	translation	-6 0 -2
 	children [
-		chairI {}
+		ChairI {}
 	]
 }
 
