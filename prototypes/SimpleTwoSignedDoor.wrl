@@ -1,0 +1,185 @@
+#VRML V2.0 utf8
+
+PROTO SimpleTwoSignedDoor[
+	exposedField MFString signITitle ["Sala 500"]
+	exposedField MFString signIITitle ["Depto de" "Eng Elétrica"]
+	exposedField SFColor bodyColor 0.39 0.8 0.95
+	exposedField SFColor doorHandleColor .7 .7 .7
+	exposedField SFColor signIColorI 1 1 1
+	exposedField SFColor signIColorII .9 .9 .1
+	exposedField SFColor signIColorIII .15 .15 .9
+	exposedField SFColor signIIColorI 1 1 1
+	exposedField SFColor signIIColorII .9 .9 .1
+	exposedField SFColor signIIColorIII .15 .15 .9
+	exposedField SFColor textIColor 1 1 1
+	exposedField SFColor textIIColor 1 1 1
+]{
+	Transform {
+		children [
+			Shape {	 # DoorBody
+				appearance Appearance {
+					material Material {
+						diffuseColor IS bodyColor
+					}	
+				}
+				geometry Box
+				{
+					size 1 2 0.01
+				}
+			}
+			Transform{ #Locker
+				translation 0.3 -0.15 0
+				children[
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor IS doorHandleColor
+							}	
+						}
+						geometry Box{
+							size 0.05 0.2 0.02
+						}
+					}	
+				]
+			}
+			Transform{ # Sign I
+				translation 0 .65 0
+				children[
+					Transform {
+						translation	-0.2 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS signIColorI
+									}	
+								}
+								geometry Box{
+									size .10 .2 0.01
+								}
+							}
+						]
+					}
+					Transform {
+						translation	-0.125 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS signIColorII
+									}	
+								}
+								geometry Box{
+									size .05 .2 0.01
+								}
+							}
+						]
+					}
+					Transform {
+						translation	0.1 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS signIColorIII
+									}	
+								}
+								geometry Box{
+									size .4 .2 0.01
+								}
+							}
+						]
+					}
+					Transform{
+						translation	0.075 0 0.02
+						children[
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS	textIColor
+									}	
+								}
+								geometry Text {
+									string IS signITitle
+									fontStyle FontStyle{
+										size 0.05
+										justify	"MIDDLE"
+									}
+								}
+							}
+						]
+					}				
+				]
+			}
+			Transform{ # Sign II
+				translation 0 .40 0
+				children[
+					Transform {
+						translation	-0.2 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS	signIIColorI
+									}	
+								}
+								geometry Box{
+									size .10 .2 0.01
+								}
+							}
+						]
+					}
+					Transform {
+						translation	-0.125 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS	signIIColorII
+									}	
+								}
+								geometry Box{
+									size .05 .2 0.01
+								}
+							}
+						]
+					}
+					Transform {
+						translation	0.1 0 0.005
+						children [
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS	signIIColorIII
+									}	
+								}
+								geometry Box{
+									size .4 .2 0.01
+								}
+							}
+						]
+					}
+					Transform{
+						translation	0.075 0 0.02
+						children[
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS	textIIColor
+									}	
+								}
+								geometry Text {
+									string IS signIITitle
+									fontStyle FontStyle{
+										size 0.05
+										justify	"MIDDLE"
+									}
+								}
+							}
+						]
+					}				
+				]
+			}
+		]
+	}
+}

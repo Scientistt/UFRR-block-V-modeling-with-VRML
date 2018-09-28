@@ -1,0 +1,89 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO LeftStripedDoor[
+	exposedField SFColor bodyColor
+	exposedField SFColor glassColor
+]["LeftStripedDoor.wrl"]
+
+EXTERNPROTO RightStripedDoor[
+	exposedField SFColor bodyColor
+	exposedField SFColor glassColor
+	exposedField SFColor doorHandleColor
+]["RightStripedDoor.wrl"]
+
+PROTO DoubleStripedDoors[
+	exposedField SFColor bodyColor 0.39 0.8 0.95
+	exposedField SFColor doorHandleColor .7 .7 .7
+	exposedField SFColor glassColor 0 0 0
+]{
+	Transform
+	{
+		children
+		[
+			Transform{
+				translation	.75 1.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 2.1 0.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	-.28 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	1.79 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
+			LeftStripedDoor{
+				bodyColor IS bodyColor
+			}	
+		
+			Transform
+			{
+				translation	0.96 0 0
+				children
+				[
+					RightStripedDoor {
+						bodyColor IS bodyColor
+						doorHandleColor	IS doorHandleColor
+						glassColor IS glassColor
+					}
+				]
+			}
+		] 
+	}
+}

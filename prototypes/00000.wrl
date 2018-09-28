@@ -1,0 +1,102 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO DoubleStripedDoors[
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+]["DoubleStripedDoors.wrl"]
+
+EXTERNPROTO SimpleOneSignedDoor[
+	exposedField MFString signTitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signColorI
+	exposedField SFColor signColorII
+	exposedField SFColor signColorIII
+	exposedField SFColor textColor
+]["SimpleOneSignedDoor.wrl"]
+
+EXTERNPROTO SimpleTwoSignedDoor[
+	exposedField MFString signITitle
+	exposedField MFString signIITitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signIColorI
+	exposedField SFColor signIColorII
+	exposedField SFColor signIColorIII
+	exposedField SFColor signIIColorI
+	exposedField SFColor signIIColorII
+	exposedField SFColor signIIColorIII
+	exposedField SFColor textIColor
+	exposedField SFColor textIIColor
+]["SimpleTwoSignedDoor.wrl"]
+
+EXTERNPROTO CircuitBreaker[
+	exposedField MFString title
+	exposedField MFString brand
+	exposedField SFColor outerColor
+	exposedField SFColor mainColor
+	exposedField SFColor brandColor
+	exposedField SFColor textColor
+	exposedField SFColor labelColor
+]["CircuitBreaker.wrl"]
+
+EXTERNPROTO GlassWindow[
+	exposedField SFColor steelColor
+	exposedField SFColor bottomColor
+	exposedField SFColor glassColor
+]["GlassWindow.wrl"]
+
+
+
+Transform {
+	translation	0 0 -1
+	children [
+		DoubleStripedDoors {}
+	]
+}
+
+Transform {
+	translation	0 0 1
+	children [
+		DoubleStripedDoors {}
+	]
+}
+
+
+Transform {
+	translation	5 0 -1
+	children [
+		GlassWindow {}
+	]
+}
+
+Transform {
+	translation	5 0 1
+	children [
+		GlassWindow {}
+	]
+}
+
+Transform {
+	translation	10 0 -1
+	children [
+		SimpleOneSignedDoor {}
+	]
+}
+
+Transform {
+	translation	15 0 -1
+	children [
+		SimpleTwoSignedDoor {}
+	]
+}
+
+Transform {
+	translation	-5 0 -1
+	children [
+		CircuitBreaker {}
+	]
+}
+
+
+

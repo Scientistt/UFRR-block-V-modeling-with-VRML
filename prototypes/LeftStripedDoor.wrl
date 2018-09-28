@@ -1,0 +1,159 @@
+#VRML V2.0 utf8
+
+PROTO LeftStripedDoor[
+	exposedField SFColor bodyColor 0.39 0.8 0.95
+	exposedField SFColor glassColor 0 0 0
+]{
+	Transform{
+		children[
+			Transform {
+				translation	0 -.49 0
+				children [
+					Shape{ 
+						appearance Appearance{
+							material Material {
+								diffuseColor IS bodyColor
+							} 	
+						}
+						geometry Box{
+							size 0.5 1.03 0.01
+						}
+					}
+				]
+			}
+			Transform {
+				translation	0 .8 0
+				children [
+					Shape{ 
+						appearance Appearance{
+							material Material {
+								diffuseColor IS bodyColor
+							} 	
+						}
+						geometry Box{
+							size 0.5 0.45 0.01
+						}
+					}
+				]
+			}
+			Transform {
+				translation	-.1375 .3 0
+				children [
+					Shape{ 
+						appearance Appearance{
+							material Material {
+								diffuseColor IS bodyColor
+							} 	
+						}
+						geometry Box{
+							size 0.225 0.55 0.01
+						}
+					}
+				]
+			}
+
+
+
+	 
+			Transform {
+				translation	0.3 -.49 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material{
+								diffuseColor 0 0 0
+							} 
+						}
+						geometry Box{
+							size 0.1 1.03 0.01
+						}
+					}
+				]
+			}
+			Transform {
+				translation	0.3 .8 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material{
+								diffuseColor 0 0 0
+							} 
+						}
+						geometry Box{
+							size 0.1 .45 0.01
+						}
+					}
+				]
+			}
+
+
+			 
+
+			Transform{
+				translation 0.55 -.49 0
+				children[
+					Shape{ # White part of the door
+						appearance Appearance{
+							material Material{
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.4 1.03 0.01
+						}
+					}	
+				]
+			}
+			Transform{
+				translation 0.55 .8 0
+				children[
+					Shape{ # White part of the door
+						appearance Appearance{
+							material Material{
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.4 .45 0.01
+						}
+					}	
+				]
+			}
+			Transform{
+				translation .637 .3 0
+				children[
+					Shape{ # White part of the door
+						appearance Appearance{
+							material Material{
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.225 .55 0.01
+						}
+					}	
+				]
+			}
+
+			
+
+			Transform{
+				translation 0.25 0.3 0
+				children[
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor IS glassColor
+								transparency .35
+							}
+								
+						}
+						geometry Box{
+							size .55 .55 0.01
+						}
+					}	
+				]
+			} 
+		]
+	}
+}

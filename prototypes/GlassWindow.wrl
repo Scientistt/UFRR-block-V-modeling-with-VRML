@@ -1,0 +1,274 @@
+#VRML V2.0 utf8
+
+PROTO GlassPanel[
+	exposedField SFColor steelColor 0.39 0.8 0.95
+	exposedField SFColor glassColor 0 0 0
+]{
+	Transform{
+		children[
+			Shape {
+				appearance	Appearance {
+					material Material {
+						diffuseColor IS glassColor
+						transparency .35
+					}
+					
+				}
+				geometry Box {
+					size .5 2 0.01
+				}
+			}
+			Transform {
+				translation	0 1 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .5 0.05 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	0 -1 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .5 0.05 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	-.26 0 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .05 2.05 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	.26 0 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .05 2.05 0.02
+						}	
+					}
+				]
+			}
+			Transform {	 ### SHORT
+				translation	0 -.2 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .05 1.6 0.01
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	0 -.6 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .5 0.05 0.01
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	0 -.8 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .5 0.05 0.01
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	0 .6 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .5 0.05 0.01
+						}	
+					}
+				]
+			}
+
+			Transform {
+				rotation 0 0 1 .7535
+				translation	0 .8 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .6 0.05 0.01
+						}	
+					}
+				]
+			}
+			Transform {
+				rotation 0 0 1 -.7535
+				translation	0 .8 .005
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .6 0.05 0.01
+						}	
+					}
+				]
+			}
+		]
+	}
+}
+
+
+PROTO GlassWindow[
+	exposedField SFColor steelColor 0.39 0.8 0.95
+	exposedField SFColor bottomColor .1 .1 .1
+	exposedField SFColor glassColor 0 0 0
+		
+]
+{
+	Transform{
+		children [
+			GlassPanel{
+				glassColor IS glassColor
+				steelColor IS steelColor
+			}
+
+			Transform {
+				translation	.575 0 0
+				children [
+					GlassPanel{
+						glassColor IS glassColor
+						steelColor IS steelColor
+					}
+				]
+			}
+
+			Transform {
+				translation	1.15 0 0
+				children [
+					GlassPanel{
+						glassColor IS glassColor
+						steelColor IS steelColor
+					}
+				]
+			}
+			Transform {
+				translation	1.465 0 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .05 2.07 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	-.315 0 0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size .05 2.07 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	.575 1.055 .0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS steelColor
+							}
+						}
+						geometry Box {
+							size 1.8345 0.05 0.02
+						}	
+					}
+				]
+			}
+			Transform {
+				translation	.575 -1.055 .0
+				children [
+					Shape {
+						appearance	Appearance {
+							material Material {
+								diffuseColor IS bottomColor
+							}
+						}
+						geometry Box {
+							size 1.8345 0.06 0.1
+						}	
+					}
+				]
+			}
+		]
+	}	
+}

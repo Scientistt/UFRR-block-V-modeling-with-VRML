@@ -1,0 +1,119 @@
+#VRML V2.0 utf8
+
+PROTO CircuitBreaker[
+	exposedField MFString title ["QUADRO DE DISTRIBUIÇÃO DE ILUMINAÇÃO E TOMADA"]
+	exposedField MFString brand ["OLIPE"]
+	exposedField SFColor outerColor .6 .6 .6
+	exposedField SFColor mainColor .7 .7 .7
+	exposedField SFColor brandColor .6 .6 .6
+	exposedField SFColor textColor 1 1 1
+	exposedField SFColor labelColor .15 .15 .9
+]
+{
+	Transform {
+		children [
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor IS outerColor
+					}
+					
+				}
+				geometry Box {
+					size .5 .7 0.01
+				}
+			}
+			
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor IS	mainColor
+					}
+			
+				}
+				geometry Box {
+					size .4 .6 0.02
+				}
+			}
+			Transform {
+				translation	-.19 0 0
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	mainColor
+							}
+			
+						}
+						geometry Sphere {
+							radius 0.025
+						}
+					}	
+				]
+			}
+			Transform {
+				rotation 0 0 1 1.57
+				translation	-.15 .15 0.02
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS brandColor
+							}
+	
+						}
+						geometry Text {
+							string IS brand
+							fontStyle FontStyle {
+								justify	"MIDDLE"
+								style "ITALIC"
+								size 0.05
+							}
+						}
+					}
+
+				]
+			}
+			
+			Transform {
+				translation	0 .32 0
+				children [
+
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	labelColor
+							}
+	
+						}
+						geometry Box {
+							size .4 .015 0.02
+						}
+					}
+					
+					Transform {
+						translation	0 -0.004 0.015
+						children [
+								Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS textColor
+									}
+	
+								}
+								geometry Text {
+									string IS title
+									fontStyle FontStyle {
+										justify	"MIDDLE"
+										size 0.01
+									}
+								}
+							}
+						]
+					}
+						
+				]
+			}
+		]
+	}
+}
