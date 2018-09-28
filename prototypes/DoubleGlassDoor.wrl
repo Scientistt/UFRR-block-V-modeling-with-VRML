@@ -1,0 +1,258 @@
+#VRML V2.0 utf8
+
+PROTO DoubleGlassDoor[
+	exposedField SFColor glassColor 0 0 0
+]{
+	Transform{
+		children[
+
+
+			DEF	leftDoorDefinition Transform {
+				children [
+					Shape { # left boor body
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	glassColor
+								transparency 0.35
+							}
+						}
+						geometry Box {
+							size 1 2 0.02
+						}
+					}
+					Transform { # left door handle I
+						translation	.35 0 0.05
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	glassColor
+										transparency 0.35
+									}
+								}
+								geometry Box {
+									size 0.2 0.4 0.02
+								}
+							}
+						]
+					}
+
+					Transform {	# left door handle II
+						translation	.35 0 -0.05
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	glassColor
+										transparency 0.35
+									}
+								}
+								geometry Box {
+									size 0.2 0.4 0.02
+								}
+							}
+						]
+					}
+					Transform {	# left door handle bar I
+						translation	.35 0.1 0
+						rotation 1 0 0 1.57
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor .7 .7 .7
+									}
+					
+								}
+								geometry Cylinder {
+									height 0.1
+									radius 0.02
+								}
+							}
+				
+						]
+					}
+
+					Transform {	# left door handle bar II
+						translation	.35 -0.1 0
+						rotation 1 0 0 1.57
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor .7 .7 .7
+									}
+					
+								}
+								geometry Cylinder {
+									height 0.1
+									radius 0.02
+								}
+							}
+				
+						]
+					}	
+				]
+			}
+
+			DEF	rightDoorDefinition Transform {
+				children [
+					Transform { # right boor body
+						translation	1.01 0 0
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	glassColor
+										transparency 0.35
+									}
+								}
+								geometry Box {
+									size 1 2 0.02
+								}
+							}
+						]
+					}
+
+			
+
+					Transform {	# right door handle I
+						translation	.66 0 0.05
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	glassColor
+										transparency 0.35
+									}
+								}
+								geometry Box {
+									size 0.2 0.4 0.02
+								}
+							}
+						]
+					}
+
+					Transform {	# right door handle II
+						translation	.66 0 -0.05
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	glassColor
+										transparency 0.35
+									}
+								}
+								geometry Box {
+									size 0.2 0.4 0.02
+								}
+							}
+						]
+					}
+
+			
+
+					Transform {	# right door handle bar I
+						translation	.66 0.1 0
+						rotation 1 0 0 1.57
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor .7 .7 .7
+									}
+					
+								}
+								geometry Cylinder {
+									height 0.1
+									radius 0.02
+								}
+							}
+				
+						]
+					}
+
+					Transform {	# right door handle bar II
+						translation	.66 -0.1 0
+						rotation 1 0 0 1.57
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor .7 .7 .7
+									}
+					
+								}
+								geometry Cylinder {
+									height 0.1
+									radius 0.02
+								}
+							}
+				
+						]
+					}
+				]
+			}
+			
+			
+		DEF	touchSensorDefinition TouchSensor{
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoors
+				field SFBool isOpen FALSE
+				field SFNode leftDoor USE leftDoorDefinition
+				field SFNode rightDoor USE rightDoorDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoors(action){
+						if(action){
+							if(isOpen){
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = 0
+								leftDoor.translation[z] = 0
+								leftDoor.translation[x] = 0
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = 0
+								rightDoor.translation[z] = 0
+								rightDoor.translation[x] = 0
+								
+									
+							}
+							else{
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = openDegree
+								leftDoor.translation[z] = -0.47
+								leftDoor.translation[x] = -0.3
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = - openDegree
+								rightDoor.translation[z] = -1.4
+								rightDoor.translation[x] = .95	
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
+		]
+	   ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoors
+	}
+}

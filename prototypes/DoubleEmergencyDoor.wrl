@@ -1,0 +1,319 @@
+#VRML V2.0 utf8
+
+#VRML V2.0 utf8
+
+PROTO DoubleEmergencyDoor[
+	exposedField SFColor mainColor .85 .7 0
+	exposedField SFColor detailsColor 0 0 0
+	exposedField SFColor textColor 1 1 1
+	exposedField MFString text ["EMPURRE"]
+	exposedField MFString warningText ["ACESSO EXCLUSIVO" "PARA SAÍDA DE" "EMERGÊNCIA"]
+	exposedField SFColor warningTextColor 0 0 0
+	exposedField SFColor warningPaperColor 1 1 1
+	exposedField SFColor pushTextColor 1 1 1
+]{
+	Transform{
+		children[
+
+
+			DEF	leftDoorDefinition Transform {
+				children [
+					Shape { # left boor body
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	mainColor  
+							}
+						}
+						geometry Box {
+							size 1 2 0.02
+						}
+					}
+					Transform{
+						translation	.4 0 0.02
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Cylinder {
+									height 2
+									radius 0.01
+								}
+							}
+						]	
+					}
+					Transform{
+						translation	0.4 0.925 0.04
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.05 0.15 0.04
+								}
+							}
+						]	
+					}
+					Transform{
+						translation	0.4 -0.925 0.04
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.05 0.15 0.04
+								}
+							}
+						]	
+					}
+
+
+
+					Transform{
+						translation	0 0 0.02
+						rotation 0 0 1 1.57
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Cylinder {
+									height 0.8
+									radius 0.02
+								}
+							}
+						]	
+					}
+
+
+					Transform {
+						translation	0 0.5 0.01
+						children [
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS warningPaperColor
+									}
+								}
+								geometry Box {
+									size 0.4 0.25 0.01
+								}
+							}
+							Transform{
+								translation	0 0.015 0.01
+								children [
+									Shape{
+										appearance Appearance {
+											material Material {
+												diffuseColor IS warningTextColor
+											}
+										}
+										geometry Text {
+											string IS warningText
+											fontStyle FontStyle	{
+												justify	"MIDDLE"
+												size 0.05
+											}
+										}
+									}
+								]
+							}
+						]
+					}
+
+					Transform {
+						translation	0 -0.015 0.04
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS pushTextColor
+									}
+								}
+								geometry Text {
+									string IS text
+									fontStyle FontStyle	{
+										justify	"MIDDLE"
+										size 0.05
+									}
+								}
+							}
+						]
+					}
+
+					Transform{
+						translation	0.4 0 0.04
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.1 0.2 0.04
+								}
+							}
+						]	
+					}
+					Transform{
+						translation	-0.4 0 0.02
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.1 0.2 0.04
+								}
+							}
+						]	
+					}
+
+				]
+			}
+
+			DEF	rightDoorDefinition Transform {
+				children [
+					Transform { # right boor body
+						translation	1.01 0 0
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	mainColor  
+									}
+								}
+								geometry Box {
+									size 1 2 0.02
+								}
+							}
+						]
+					}
+					Transform{
+						translation	1.01 0 0.02
+						rotation 0 0 1 1.57
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Cylinder {
+									height 0.8
+									radius 0.02
+								}
+							}
+						]	
+					}
+					Transform{
+						translation	1.41 0 0.04
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.1 0.2 0.04
+								}
+							}
+						]	
+					}
+					Transform{
+						translation	0.61 0 0.02
+						children[
+							Shape{
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	detailsColor
+									}
+								}
+								geometry Box {
+									size 0.1 0.2 0.04
+								}
+							}
+						]	
+					}
+				]
+			}
+			
+			
+		DEF	touchSensorDefinition TouchSensor{
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoors
+				field SFBool isOpen FALSE
+				field SFNode leftDoor USE leftDoorDefinition
+				field SFNode rightDoor USE rightDoorDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoors(action){
+						if(action){
+							if(isOpen){
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = 0
+								leftDoor.translation[z] = 0
+								leftDoor.translation[x] = 0
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = 0
+								rightDoor.translation[z] = 0
+								rightDoor.translation[x] = 0
+								
+									
+							}
+							else{
+								leftDoor.rotation[x] = 0
+								leftDoor.rotation[y] = 1
+								leftDoor.rotation[z] = 0
+								leftDoor.rotation[value] = openDegree
+								leftDoor.translation[z] = -0.47
+								leftDoor.translation[x] = -0.3
+								
+								rightDoor.rotation[x] = 0
+								rightDoor.rotation[y] = 1
+								rightDoor.rotation[z] = 0
+								rightDoor.rotation[value] = - openDegree
+								rightDoor.translation[z] = -1.4
+								rightDoor.translation[x] = .95	
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
+		]
+	   ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoors
+	}
+}
+
+
+DoubleEmergencyDoor{}
