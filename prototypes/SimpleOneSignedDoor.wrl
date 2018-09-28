@@ -10,6 +10,7 @@ PROTO SimpleOneSignedDoor[
 	exposedField SFColor textColor 1 1 1
 ]{
 	Transform {
+		scale .7 .7 .7
 		children [
 			Transform{
 				translation	0 1.03 0

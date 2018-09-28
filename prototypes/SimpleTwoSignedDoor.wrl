@@ -15,6 +15,7 @@ PROTO SimpleTwoSignedDoor[
 	exposedField SFColor textIIColor 1 1 1
 ]{
 	Transform {
+		scale .7 .7 .7
 		children [
 
 			Transform{

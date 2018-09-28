@@ -77,143 +77,178 @@ EXTERNPROTO ChairI[
 
 ]["ChairI.wrl"]
 
+
 EXTERNPROTO ChairIPack[
 	exposedField SFColor mainColor
 	exposedField SFColor detailsColor	
 ]["ChairIPack.wrl"]
 
 
+ EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
 
 
 
-Transform {
-	translation	-20 0 0
-	children [
-		ChairIPack {}
-	]
-}
 
-Transform {
-	translation	-9 0 0
-	children [
-		DoubleEmergencyDoor {}
-	]
-}
 
-Transform {
-	translation	-6 0 0
-	children [
-		ChairI {}
-	]
-}
 
-Transform {
-	translation	-3 0 0
-	children [
-		DoubleGlassDoor {}
-	]
-}
 
 Transform {
 	translation	0 0 0
 	children [
-		DoubleStripedDoors {}
+		Transform {
+			scale 1 2.1 1
+			children [
+				SimpleWall {}
+			]
+		}
+		Transform {
+			translation	1.05 0 0
+			children [
+				SimpleTwoSignedDoor {signITitle "Sala 532" signIITitle ["Depto de " "Computação"]}
+			]
+		}
+		Transform {
+			scale 1 2.1 1
+			translation	2.1 0 0
+			children [
+				SimpleWall {}
+			]
+		}
+		Transform {
+			scale 3.1 1 1
+			translation	1.05 1.55 0
+			children [
+				SimpleWall {}
+			]
+		}
 	]
 }
 
-Transform {
-	translation	3 0 0
-	children [
-		SimpleOneSignedDoor {}
-	]
-}
+#Transform {
+#	translation	-9 0 0
+#	children [
+#		DoubleEmergencyDoor {}
+#	]
+#}
 
-Transform {
-	translation	6 0 0
-	children [
-		SimpleTwoSignedDoor {}
-	]
-}
+#Transform {
+#	translation	-6 0 0
+#	children [
+#		ChairI {}
+#	]
+#}
 
-Transform {
-	translation	9 0 0
-	children [
-		CircuitBreaker {}
-	]
-}
+#Transform {
+#	translation	-3 0 0
+#	children [
+#		DoubleGlassDoor {}
+#	]
+#}
 
-Transform {
-	translation	12 0 0
-	children [
-		GlassWindow {}
-	]
-}
+#Transform {
+#	translation	0 0 0
+#	children [
+#		DoubleStripedDoors {}
+#	]
+#}
+
+#Transform {
+#	translation	3 0 0
+#	children [
+#		SimpleOneSignedDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	6 0 0
+#	children [
+#		SimpleWall {}
+#	]
+#}
+
+#Transform {
+#	translation	9 0 0
+#	children [
+#		CircuitBreaker {}
+#	]
+#}
+
+#Transform {
+#	translation	12 0 0
+#	children [
+#		GlassWindow {}
+#	]
+#}
 
 
-##################
+###################
 
-Transform {
-	translation	-20 0 -2
-	children [
-		ChairIPack {}
-	]
-}
+#Transform {
+#	translation	-20 0 -2
+#	children [
+#		ChairIPack {}
+#	]
+#}
 
-Transform {
-	translation	-9 0 -2
-	children [
-		DoubleEmergencyDoor {}
-	]
-}
+#Transform {
+#	translation	-9 0 -2
+#	children [
+#		DoubleEmergencyDoor {}
+#	]
+#}
 
-Transform {
-	translation	-6 0 -2
-	children [
-		ChairI {}
-	]
-}
+#Transform {
+#	translation	-6 0 -2
+#	children [
+#		ChairI {}
+#	]
+#}
 
-Transform {
-	translation	-3 0 -2
-	children [
-		DoubleGlassDoor {}
-	]
-}
+#Transform {
+#	translation	-3 0 -2
+#	children [
+#		DoubleGlassDoor {glassColor 0 .35 .45}
+#	]
+#}
 
-Transform {
-	translation	0 0 -2
-	children [
-		DoubleStripedDoors {}
-	]
-}
+#Transform {
+#	translation	0 0 -2
+#	children [
+#		DoubleStripedDoors {}
+#	]
+#}
 
-Transform {
-	translation	3 0 -2
-	children [
-		SimpleOneSignedDoor {}
-	]
-}
+#Transform {
+#	translation	3 0 -2
+#	children [
+#		SimpleOneSignedDoor {}
+#	]
+#}
 
-Transform {
-	translation	6 0 -2
-	children [
-		SimpleTwoSignedDoor {}
-	]
-}
+#Transform {
+#	translation	6 0 -2
+#	children [
+#		SimpleTwoSignedDoor {}
+#	]
+#}
 
-Transform {
-	translation	9 0 -2
-	children [
-		CircuitBreaker {}
-	]
-}
+#Transform {
+#	translation	9 0 -2
+#	children [
+#		CircuitBreaker {}
+#	]
+#}
 
-Transform {
-	translation	12 0 -2
-	children [
-		GlassWindow {}
-	]
-}
+#Transform {
+#	translation	12 0 -2
+#	children [
+#		GlassWindow {}
+#	]
+#}
 
 
 

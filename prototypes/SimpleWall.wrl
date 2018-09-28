@@ -1,0 +1,53 @@
+#VRML V2.0 utf8
+
+PROTO SimpleWall[
+	exposedField SFColor insideColor	0 0 1
+	exposedField SFColor outsideColor	0 1 0
+	exposedField SFColor sideColor		1 0 0	
+]{
+	Transform{
+		children [
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor IS	sideColor
+					}
+				}
+				geometry Box {
+					size 1 1 0.15
+				}
+			}
+			Transform{
+				translation	0 0 0.076
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	outsideColor
+							}
+						}
+						geometry Box {
+							size 1 1 0.001
+						}
+					}
+				]
+			}
+			Transform{
+				translation	0 0 -0.076
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	insideColor
+							}
+						}
+						geometry Box {
+							size 1 1 0.001
+						}
+					}
+				]
+			}
+		]
+	}
+	
+}

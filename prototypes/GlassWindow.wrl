@@ -184,6 +184,7 @@ PROTO GlassWindow[
 ]
 {
 	Transform{
+		scale .7 .7 .7
 		children [
 			DEF glassPanelI Transform{
 				children [

@@ -1,0 +1,199 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO SimpleTeachersRoom[
+	exposedField SFColor outsideColor
+	exposedField SFColor insideColor
+	exposedField SFColor sideColor
+	exposedField MFString rightDoorSignTitle
+	exposedField MFString leftDoorSignTitle	
+]["SimpleTeachersRoom.wrl"]
+
+
+EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
+
+
+EXTERNPROTO DoubleEmergencyDoor[
+	exposedField SFColor mainColor
+	exposedField SFColor detailsColor
+	exposedField SFColor textColor
+	exposedField MFString text
+	exposedField MFString warningText
+	exposedField SFColor warningTextColor
+	exposedField SFColor warningPaperColor
+	exposedField SFColor pushTextColor
+]["DoubleEmergencyDoor.wrl"]
+
+
+
+PROTO RightSide[
+	exposedField SFColor insideColor .9 .9 .9
+	exposedField SFColor outsideColor .9 .9 .9
+	exposedField SFColor sideColor .9 .9 .9
+	
+]{
+	Transform {
+		children[
+			Transform {
+				children [
+					Transform {
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	4.9 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	9.8 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	14.7 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	19.6 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}	
+				]
+			}
+
+			Transform {
+				rotation 0 1 0 3.14
+				translation	19.622 0 -14.4
+				children [
+					Transform {
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	4.9 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	9.8 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	14.7 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}
+					Transform {
+						translation	19.6 0 0
+						children [
+							SimpleTeachersRoom	{
+								insideColor IS insideColor
+								outsideColor IS	outsideColor
+								sideColor IS sideColor
+							}
+						]
+					}	
+				]
+			}
+			Transform {
+				rotation 0 1 0 1.57
+				scale .7 .7 .7
+				translation	-2.5 -.8 -6.85 
+				children [
+					DoubleEmergencyDoor	{}
+				]
+			}
+
+			Transform {	# PAREDE AO LADO DIREITO DA EMERGÊNCIA
+				scale .32 2 1
+				translation	-2.438 -.8 -6.3
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor IS insideColor
+						outsideColor IS	outsideColor
+						sideColor IS sideColor
+					}
+				]
+			}
+			Transform {	# PAREDE AO LADO ESQUERDO DA EMERGÊNCIA
+				scale .32 2 1
+				translation	-2.438 -.8 -8.1
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor IS insideColor
+						outsideColor IS	outsideColor
+						sideColor IS sideColor
+					}
+				]
+			}
+			Transform {	# PAREDE A CIMA DA EMERGÊNCIA
+				scale 2 1.6 1
+				translation	-2.438 .7 -7.25
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor IS insideColor
+						outsideColor IS	outsideColor
+						sideColor IS sideColor
+					}
+				]
+			}
+		]
+	}
+}
+
+
+RightSide{}

@@ -1,0 +1,192 @@
+#VRML V2.0 utf8
+
+ EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
+
+EXTERNPROTO GlassWindow[
+	exposedField SFColor steelColor
+	exposedField SFColor bottomColor
+	exposedField SFColor glassColor
+]["GlassWindow.wrl"]
+
+EXTERNPROTO SimpleOneSignedDoor[
+	exposedField MFString signTitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signColorI
+	exposedField SFColor signColorII
+	exposedField SFColor signColorIII
+	exposedField SFColor textColor
+]["SimpleOneSignedDoor.wrl"]
+
+
+
+
+PROTO SimpleTeachersRoom[
+	exposedField SFColor outsideColor .9 .9 .9
+	exposedField SFColor insideColor .9 .9 .9
+	exposedField SFColor sideColor .9 .9 .9
+	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
+	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
+]{
+	Transform {
+		children [
+			
+			Transform{# PAREDE ENTRE AS JANELAS
+				translation -.02 0 0
+				scale 1.58 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			Transform{# PAREDE À ESQUERDA DA JANELA
+				translation -2.3 0 0
+				scale .43 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			Transform{# PAREDE À DIREITA DA JANELA
+				translation 2.27 0 0
+				scale .455 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+
+			Transform{# PAREDE ACIMA DA JANELA
+				translation 0 1.12 0
+				scale 5 .757 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			Transform{# PAREDE ABAIXO DA JANELA
+				translation 0 -1.12 0
+				scale 5 .757 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			# Window I
+			Transform{
+				translation	-1.85 0 .1
+				children [
+					GlassWindow{}
+				]
+			}
+			# Window II
+			Transform{
+				translation 1 0 .1
+				children [
+					GlassWindow{}
+				]
+			}
+
+			Transform{# PAREDE ESQUERDA
+				rotation 0 1 0 -1.57
+				translation	-2.437 0 -3.175
+				scale 6.20 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			Transform{# PAREDE CENTRAL
+				rotation 0 1 0 -1.57
+				translation	0 0 -3.175
+				scale 6.20 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+			Transform{# PAREDE DIREITA
+				rotation 0 1 0 1.57
+				translation	2.437 0 -3.175
+				scale 6.20 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+
+
+			Transform{ # RIGHT DOOR
+				translation -2 -.8 -6.27
+				rotation 0 1 0 3.14
+				
+				children [
+					SimpleOneSignedDoor	{signTitle IS rightDoorSignTitle }
+				]
+			}
+
+			Transform{ # LEFT DOOR
+				translation 2 -.8 -6.27
+				rotation 0 1 0 3.14
+				
+				children [
+					SimpleOneSignedDoor	{signTitle IS leftDoorSignTitle}
+				]
+			}
+
+			Transform{# PAREDE DA FRENTE PARTE ALTA
+				rotation 0 1 0 3.14
+				translation	0 .72 -6.205
+				scale 5 1.56 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+
+			Transform{# PAREDE DA FRENTE PARTE BAIXA
+				rotation 0 1 0 3.14
+				translation	0 -.8 -6.205
+				scale 3.22 1.56 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}		
+		]
+	}
+}
