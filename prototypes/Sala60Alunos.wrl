@@ -1,0 +1,166 @@
+#VRML V2.0 utf8
+
+
+# Opens and closes
+EXTERNPROTO DoubleStripedDoors[
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+]["DoubleStripedDoors.wrl"]
+
+# Opens and closes
+EXTERNPROTO SimpleOneSignedDoor[
+	exposedField MFString signTitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signColorI
+	exposedField SFColor signColorII
+	exposedField SFColor signColorIII
+	exposedField SFColor textColor
+]["SimpleOneSignedDoor.wrl"]
+
+
+# Opens and closes 
+EXTERNPROTO GlassWindow[
+	exposedField SFColor steelColor
+	exposedField SFColor bottomColor
+	exposedField SFColor glassColor
+]["GlassWindow.wrl"]
+
+
+ EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
+
+
+#PAREDE ESQUERDA
+Transform {
+	translation	-9.85 0.4 -3.1
+	rotation 0 1 0  1.57
+	scale 6.2 3 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE DIREITA
+Transform {
+	translation	0 0.4 -3.1
+	rotation 0 1 0  1.57
+	scale 6.2 3 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE FRENTE_SALA
+Transform {
+	translation	-5.55 0.4 -0.08
+	scale 8.7 3 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE FRENTE_SALA_CIMA
+Transform {
+	translation	-.63 1.5 -0.08
+	scale 1.14 0.8 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE COSTA_SALA_BAIXO 
+
+Transform {
+	translation	-4.85 -.5 -6.1
+	scale 9.84 1.2 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE COSTA_SALA_CIMA
+Transform {
+	translation	-4.85 1.6 -6.1
+	scale 9.85 .6 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE COSTA_MEIO_0
+Transform {
+	translation	-2.42 0.55 -6.1
+	scale 2.35 1.5 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE COSTA_MEIO_1
+Transform {
+	translation	-5 0.55 -6.1
+	scale .2 1.5 1
+	children [
+		SimpleWall {}
+	]
+}
+
+#PAREDE COSTA_MEIO_1
+Transform {
+	translation	-7.42 0.55 -6.1
+	scale 2.35 1.5 1
+	children [
+		SimpleWall {}
+	]
+}
+
+
+#PORTA
+Transform {
+	translation	-0.65 0 0
+	scale 1.5 1.5 1
+	children [
+		SimpleOneSignedDoor {}
+	]
+}
+
+#JANELA 0
+Transform {
+	rotation 0 1 0  3.14
+	translation	-0.2 0.6 -6.2
+	children [
+		GlassWindow {}
+	]
+}
+
+#JANELA 1
+Transform {
+	rotation 0 1 0  3.14
+	translation	-3.85 0.6 -6.2
+	children [
+		GlassWindow {}
+	]
+}
+
+#JANELA 2
+Transform {
+	rotation 0 1 0  3.14
+	translation	-5.35 0.6 -6.2
+	children [
+		GlassWindow {}
+	]
+}
+
+#JANELA 3
+Transform {
+	rotation 0 1 0  3.14
+	translation	-8.85 0.6 -6.2
+	children [
+		GlassWindow {}
+	]
+}
+

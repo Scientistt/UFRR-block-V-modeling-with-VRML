@@ -1,0 +1,259 @@
+#VRML V2.0 utf8
+
+# Opens and closes
+EXTERNPROTO DoubleStripedDoors[
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+]["DoubleStripedDoors.wrl"]
+
+# Opens and closes
+EXTERNPROTO SimpleOneSignedDoor[
+	exposedField MFString signTitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signColorI
+	exposedField SFColor signColorII
+	exposedField SFColor signColorIII
+	exposedField SFColor textColor
+]["SimpleOneSignedDoor.wrl"]
+
+# Opens and closes
+EXTERNPROTO SimpleTwoSignedDoor[
+	exposedField MFString signITitle
+	exposedField MFString signIITitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signIColorI
+	exposedField SFColor signIColorII
+	exposedField SFColor signIColorIII
+	exposedField SFColor signIIColorI
+	exposedField SFColor signIIColorII
+	exposedField SFColor signIIColorIII
+	exposedField SFColor textIColor
+	exposedField SFColor textIIColor
+]["SimpleTwoSignedDoor.wrl"]
+
+# Opens and closes
+EXTERNPROTO CircuitBreaker[
+	exposedField MFString title
+	exposedField MFString brand
+	exposedField SFColor outerColor
+	exposedField SFColor mainColor
+	exposedField SFColor brandColor
+	exposedField SFColor textColor
+	exposedField SFColor labelColor
+]["CircuitBreaker.wrl"]
+
+
+# Opens and closes 
+EXTERNPROTO GlassWindow[
+	exposedField SFColor steelColor
+	exposedField SFColor bottomColor
+	exposedField SFColor glassColor
+]["GlassWindow.wrl"]
+
+# Opens and close
+EXTERNPROTO DoubleGlassDoor[
+	exposedField SFColor glassColor
+]["DoubleGlassDoor.wrl"]
+
+#Opens and closes
+EXTERNPROTO DoubleEmergencyDoor[
+	exposedField SFColor mainColor
+	exposedField SFColor detailsColor
+	exposedField SFColor textColor
+	exposedField MFString text
+	exposedField MFString warningText
+	exposedField SFColor warningTextColor
+	exposedField SFColor warningPaperColor
+	exposedField SFColor pushTextColor
+]["DoubleEmergencyDoor.wrl"]
+
+
+
+EXTERNPROTO ChairI[
+	exposedField SFColor mainColor
+	exposedField SFColor detailsColor
+
+]["ChairI.wrl"]
+
+
+EXTERNPROTO ChairIPack[
+	exposedField SFColor mainColor
+	exposedField SFColor detailsColor	
+]["ChairIPack.wrl"]
+
+
+ EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
+
+
+
+
+
+
+
+Transform {
+	translation	0 0 0
+	children [
+		Transform {
+			scale 1 2.1 1
+			children [
+				SimpleWall {}
+			]
+		}
+		Transform {
+			translation	1.05 0 0
+			children [
+				SimpleTwoSignedDoor {signITitle "Sala 532" signIITitle ["Depto de " "Computação"]}
+			]
+		}
+		Transform {
+			scale 1 2.1 1
+			translation	2.1 0 0
+			children [
+				SimpleWall {}
+			]
+		}
+		Transform {
+			scale 3.1 1 1
+			translation	1.05 1.55 0
+			children [
+				SimpleWall {}
+			]
+		}
+	]
+}
+
+#Transform {
+#	translation	-9 0 0
+#	children [
+#		DoubleEmergencyDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	-6 0 0
+#	children [
+#		ChairI {}
+#	]
+#}
+
+#Transform {
+#	translation	-3 0 0
+#	children [
+#		DoubleGlassDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	0 0 0
+#	children [
+#		DoubleStripedDoors {}
+#	]
+#}
+
+#Transform {
+#	translation	3 0 0
+#	children [
+#		SimpleOneSignedDoor {}
+#	]
+#}
+
+Transform {
+	translation	6 0 0
+	children [
+		SimpleWall {}
+	]
+}
+
+#Transform {
+#	translation	9 0 0
+#	children [
+#		CircuitBreaker {}
+#	]
+#}
+
+#Transform {
+#	translation	12 0 0
+#	children [
+#		GlassWindow {}
+#	]
+#}
+
+
+##################
+
+#Transform {
+#	translation	-20 0 -2
+#	children [
+#		ChairIPack {}
+#	]
+#}
+
+#Transform {
+#	translation	-9 0 -2
+#	children [
+#		DoubleEmergencyDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	-6 0 -2
+#	children [
+#		ChairI {}
+#	]
+#}
+
+#Transform {
+#	translation	-3 0 -2
+#	children [
+#		DoubleGlassDoor {glassColor 0 .35 .45}
+#	]
+#}
+
+#Transform {
+#	translation	0 0 -2
+#	children [
+#		DoubleStripedDoors {}
+#	]
+#}
+
+#Transform {
+#	translation	3 0 -2
+#	children [
+#		SimpleOneSignedDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	6 0 -2
+#	children [
+#		SimpleTwoSignedDoor {}
+#	]
+#}
+
+#Transform {
+#	translation	9 0 -2
+#	children [
+#		CircuitBreaker {}
+#	]
+#}
+
+#Transform {
+#	translation	12 0 -2
+#	children [
+#		GlassWindow {}
+#	]
+#}
+
+
+
+
+
+
+
+
