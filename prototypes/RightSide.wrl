@@ -33,6 +33,7 @@ PROTO RightSide[
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
+	exposedField SFColor detailColor .5 .16 .2
 	
 ]{
 	Transform {
@@ -191,9 +192,158 @@ PROTO RightSide[
 					}
 				]
 			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	-2.45 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+			
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	2.45 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	7.37 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	12.23 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	17.12 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+
+
+
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	-2.45 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+			
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	2.45 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	7.37 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	12.23 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	17.12 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+			
 		]
 	}
 }
 
 
 RightSide{}
+
+
+
+Transform {
+	scale 100 .2 500
+	translation	0 -1.5 0
+	children [
+		SimpleWall {
+			insideColor	0 .2 0
+			outsideColor 0 .2 0
+			sideColor 0 .2 0
+		}
+	]
+}

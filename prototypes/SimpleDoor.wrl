@@ -1,0 +1,138 @@
+#VRML V2.0 utf8
+
+PROTO SimpleDoor[
+	exposedField MFString signTitle ["Sala 500"]
+	exposedField SFColor bodyColor .9 .9 .9
+	exposedField SFColor doorHandleColor .7 .7 .7
+]{
+	Transform {
+		scale .7 .7 .7
+		children [
+			Transform{
+				translation	0 1.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 1.1 0.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	-.53 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
+			Transform{
+				translation	.53 0.03 0
+				children [
+					Shape{
+						appearance Appearance{
+							material Material {
+								diffuseColor 1 1 1
+							}	
+						}
+						geometry Box{
+							size 0.05 2.05 0.02
+						}
+					}
+				]
+			}
+
+			DEF	doorBodyDefinition Transform {
+				children [
+					Shape {	 # DoorBody
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	bodyColor
+							}	
+						}
+						geometry Box
+						{
+							size 1 2 0.01
+						}
+					}
+					Transform{ #Locker
+						translation 0.3 -0.15 0
+						children[
+							Shape{
+								appearance Appearance{
+									material Material {
+										diffuseColor IS doorHandleColor
+
+									}	
+								}
+								geometry Box{
+									size 0.05 0.2 0.02
+								}
+							}	
+						]
+					}
+				]
+			}
+			DEF	touchSensorDefinition TouchSensor {
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoor
+				field SFBool isOpen FALSE
+				field SFNode door USE doorBodyDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoor(action){
+						if(action){
+							if(isOpen){
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = 0
+								door.translation[z] = 0
+								door.translation[x] = 0
+								
+									
+							}
+							else{
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = openDegree
+								door.translation[z] = -0.47
+								door.translation[x] = -0.33	
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
+		]
+		ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
+	}
+}
+
+
+SimpleDoor {}
