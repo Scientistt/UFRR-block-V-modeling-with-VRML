@@ -29,7 +29,7 @@ EXTERNPROTO DoubleEmergencyDoor[
 
 
 
-PROTO RightSide[
+PROTO RightSideFar[
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
@@ -326,24 +326,33 @@ PROTO RightSide[
 					}
 				]
 			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	22.03 0 .25
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+
+			Transform {	#OUTSIDE COLUM
+				scale .5 3 1
+				rotation 0 1 0 1.57
+				translation	22.03 0 -14.7
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
 			
 		]
 	}
-}
-
-
-RightSide{}
-
-
-
-Transform {
-	scale 100 .2 500
-	translation	0 -1.5 0
-	children [
-		SimpleWall {
-			insideColor	0 .2 0
-			outsideColor 0 .2 0
-			sideColor 0 .2 0
-		}
-	]
 }

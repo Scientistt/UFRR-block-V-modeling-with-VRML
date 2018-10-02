@@ -133,6 +133,3 @@ PROTO SimpleDoor[
 		ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
 	}
 }
-
-
-SimpleDoor {}

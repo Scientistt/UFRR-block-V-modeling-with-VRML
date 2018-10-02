@@ -1,0 +1,45 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO RightSideFar[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor 
+	exposedField SFColor sideColor 
+	exposedField SFColor detailColor 
+	
+]["RightSideFar.wrl"]
+
+
+EXTERNPROTO RightSideClose[
+
+]["RightSideClose.wrl"]
+
+
+
+PROTO BlockV[
+]{
+	Transform {
+		children [
+			Transform {
+				children [
+					RightSideClose{}	
+				]
+			}
+			Transform {
+				rotation 0 1 0 -1.1
+				translation	-41.5 0 -29
+				children [
+					RightSideFar{}
+				]
+			}
+		]
+	}
+}
+
+
+Viewpoint {
+	description	"Upper"
+	position 0 50 -15	
+	orientation	1 0 0 -1.57
+}
+
+BlockV{}

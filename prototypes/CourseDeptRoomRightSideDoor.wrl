@@ -1,0 +1,209 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor	
+]["SimpleWall.wrl"]
+
+EXTERNPROTO	SimpleOneSignedDoor[
+	exposedField MFString signTitle
+	exposedField SFColor bodyColor
+	exposedField SFColor doorHandleColor
+	exposedField SFColor signColorI
+	exposedField SFColor signColorII
+	exposedField SFColor signColorIII
+	exposedField SFColor textColor
+]["SimpleOneSignedDoor.wrl"]
+
+EXTERNPROTO SimpleTwoSignedDoor[
+	exposedField MFString signITitle 
+	exposedField MFString signIITitle 
+	exposedField SFColor bodyColor 
+	exposedField SFColor doorHandleColor 
+	exposedField SFColor signIColorI 
+	exposedField SFColor signIColorII 
+	exposedField SFColor signIColorIII 
+	exposedField SFColor signIIColorI 
+	exposedField SFColor signIIColorII
+	exposedField SFColor signIIColorIII
+	exposedField SFColor textIColor
+	exposedField SFColor textIIColor
+]["SimpleTwoSignedDoor.wrl"]
+
+EXTERNPROTO GlassWindow[
+	exposedField SFColor steelColor
+	exposedField SFColor bottomColor
+	exposedField SFColor glassColor
+		
+]["GlassWindow.wrl"]
+
+
+PROTO CourseDeptRoomRightSideDoor[
+	exposedField SFColor insideColor .9 .9 .9
+	exposedField SFColor outsideColor .9 .9 .9
+	exposedField SFColor sideColor .9 .9 .9
+	exposedField SFColor detailColor .5 .16 .2	
+]{
+	Transform{
+		children [
+			
+			Transform	{ 
+				scale .5 3 1
+				translation	-2.34 0 0.25
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+			Transform	{ 
+				scale .5 3 1
+				translation	2.34 0 0.25
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
+			Transform {
+				translation	1.23 0 0
+				children [
+					GlassWindow	{}
+				]
+			}
+
+			Transform {
+				translation	-2.05 0 0
+				children [
+					GlassWindow	{}
+				]
+			}
+
+			Transform	{ # PAREDE ABAIXO JANELAS
+				scale 4.8 .757 1
+				translation	0 -1.12 0
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform	{ # PAREDE ENNTRE JANELAS
+				scale 2 2 1
+				translation	0 0 0
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+			Transform	{ # PAREDE ACIMA JANELAS
+				scale 4.8 .757 1
+				translation	0 1.12 0
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform {
+				translation	-1.5 -.8 -6.55
+				rotation 0 1 0 3.14
+				children [
+					SimpleTwoSignedDoor	{}
+				]
+			}
+
+			Transform	{ # PARTE DE CIMA DA PORTA WALL
+				scale 4.8 1.56 1
+				translation	0 .72 -6.525
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform	{ # PARTE DE LADO ESQUERDO DA PORTA WALL
+				scale 3.5 1.56 1
+				translation	.63 -.75 -6.525
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform	{ # PARTE DE LADO DIREITO DA PORTA WALL
+				scale 0.5 1.56 1
+				translation	-2.13 -.75 -6.525
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+
+			Transform	{ # MIDDLE WALL
+				scale 4.8 3 1
+				translation	0 0 -3.9
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform	{ # LEFT WALL
+				scale 6.6 3 1
+				translation	-2.34 0 -3.3
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+			Transform	{ # RIGHT WALL
+				scale 6.6 3 1
+				translation	2.34 0 -3.3
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+					}
+				]
+			}
+
+		]
+	}
+}

@@ -1,0 +1,88 @@
+#VRML V2.0 utf8
+
+
+
+EXTERNPROTO CourseDeptRoomRightSideDoor[
+	exposedField SFColor insideColor 
+	exposedField SFColor outsideColor 
+	exposedField SFColor sideColor 
+	exposedField SFColor detailColor 
+]["CourseDeptRoomRightSideDoor.wrl"]
+
+EXTERNPROTO CourseDeptRoomLeftSideDoor[
+	exposedField SFColor insideColor 
+	exposedField SFColor outsideColor 
+	exposedField SFColor sideColor 
+	exposedField SFColor detailColor 
+]["CourseDeptRoomLeftSideDoor.wrl"]
+
+
+
+PROTO RightSideClose[
+
+]{
+	Transform{
+		children [
+			Transform {
+				children [
+					CourseDeptRoomRightSideDoor	{}
+				]
+			}
+			Transform {
+				translation	-4.73 0 0
+				children [
+					CourseDeptRoomRightSideDoor	{}
+				]
+			}
+			Transform {
+				translation -9.43 0 0 
+				children [
+					CourseDeptRoomRightSideDoor	{}
+				]
+			}
+			Transform {
+				translation -14.15 0 0 
+				children [
+					CourseDeptRoomLeftSideDoor{}
+				]
+			}
+
+
+			Transform {
+
+				translation	-14.15 0 -14.8
+				rotation 0 1 0 3.14
+				children [
+					Transform {
+						children [
+							CourseDeptRoomRightSideDoor	{}
+						]
+					}
+					Transform {
+						translation	-4.73 0 0
+						children [
+							CourseDeptRoomLeftSideDoor	{}
+						]
+					}
+					Transform {
+						translation -9.43 0 0 
+						children [
+							CourseDeptRoomLeftSideDoor	{}
+						]
+					}
+					Transform {
+						translation -14.15 0 0 
+						children [
+							CourseDeptRoomLeftSideDoor{}
+						]
+					}
+				]
+			}
+
+
+
+
+
+		]
+	}
+}
