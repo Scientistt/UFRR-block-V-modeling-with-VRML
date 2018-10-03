@@ -13,6 +13,11 @@ EXTERNPROTO RightSideClose[
 
 ]["RightSideClose.wrl"]
 
+EXTERNPROTO WaterClosed [
+	exposedField SFColor insideColor
+
+]["WaterClosed.wrl"]
+
 
 
 PROTO BlockV[
@@ -38,8 +43,16 @@ PROTO BlockV[
 
 Viewpoint {
 	description	"Upper"
-	position 0 50 -15	
+	position -20 20 -10	
 	orientation	1 0 0 -1.57
 }
 
 BlockV{}
+
+Transform {
+	rotation 0 1 0 -.5
+	translation	-17.55 0 -15.3
+	children [
+		WaterClosed{}
+	]
+}

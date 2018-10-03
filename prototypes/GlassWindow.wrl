@@ -282,6 +282,16 @@ PROTO GlassWindow[
 					}
 				]
 			}
+			Sound	{
+						intensity	100000
+						maxBack		100000
+						minBack		100000
+						maxFront	100000
+						minFront	100000
+						source DEF soundDefinition AudioClip {
+							url	"../sounds/window.wav"
+						}
+					}
 			DEF	touchSensorDefinition TouchSensor {
 				enabled	TRUE
 			}
@@ -342,5 +352,6 @@ PROTO GlassWindow[
 			}
 		]
 		ROUTE touchSensorDefinition.isActive TO scriptDefinition.touchedPanel
+		ROUTE touchSensorDefinition.touchTime TO soundDefinition.startTime
 	}	
 }

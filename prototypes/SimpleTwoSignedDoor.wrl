@@ -231,6 +231,16 @@ PROTO SimpleTwoSignedDoor[
 							}				
 						]
 					}
+					Sound	{
+						intensity	100000
+						maxBack		100000
+						minBack		100000
+						maxFront	100000
+						minFront	100000
+						source DEF soundDefinition AudioClip {
+							url	"../sounds/door.wav"
+						}
+					}
 				]
 			}
 		DEF	touchSensorDefinition TouchSensor {
@@ -277,5 +287,6 @@ PROTO SimpleTwoSignedDoor[
 			}
 		]
 		ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
+		ROUTE touchSensorDefinition.touchTime TO soundDefinition.startTime
 	}
 }

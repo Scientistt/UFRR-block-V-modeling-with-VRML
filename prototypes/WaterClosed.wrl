@@ -1,0 +1,43 @@
+#VRML V2.0 utf8
+
+
+EXTERNPROTO SimpleWall[
+	exposedField SFColor insideColor
+	exposedField SFColor outsideColor
+	exposedField SFColor sideColor
+]["SimpleWall.wrl"]
+
+
+PROTO WaterClosed [
+	exposedField SFColor insideColor .9 .9 .9
+
+]{
+	Transform {
+		children [
+			Transform	{ # BACK LITTLE WALL
+				scale 2.5 3 1
+				children [
+					SimpleWall{
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+
+					}
+				]
+			}
+			Transform {
+				scale 3.8 3 1
+				rotation 0 1 0 0.2
+				translation	2.4 0 6.056
+				children [
+					SimpleWall{
+						insideColor	IS insideColor
+						outsideColor IS	insideColor
+						sideColor IS insideColor
+
+					}	
+				]
+			}
+		]
+	}
+}

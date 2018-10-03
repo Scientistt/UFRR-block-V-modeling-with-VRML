@@ -12,6 +12,18 @@ PROTO SimpleOneSignedDoor[
 	Transform {
 		scale .7 .7 .7
 		children [
+			DEF	infoSensorDefinition ProximitySensor {
+			}
+			DEF	infoParentDefinition Transform {
+				children [
+					Transform {
+						children [
+							
+						]
+					}
+				]
+			}
+
 			Transform{
 				translation	0 1.03 0
 				children [
@@ -155,7 +167,17 @@ PROTO SimpleOneSignedDoor[
 										}
 									}
 								]
-							}				
+							}
+							Sound	{
+								intensity	100000
+								maxBack		100000
+								minBack		100000
+								maxFront	100000
+								minFront	100000
+								source DEF soundDefinition AudioClip {
+									url	"../sounds/door.wav"
+								}
+							}			
 						]
 					}
 				]
@@ -204,5 +226,6 @@ PROTO SimpleOneSignedDoor[
 			}
 		]
 		ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
+		ROUTE touchSensorDefinition.touchTime TO	soundDefinition.startTime
 	}
 }
