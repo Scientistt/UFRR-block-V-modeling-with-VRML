@@ -98,7 +98,7 @@ PROTO CourseDeptRoomRightSideDoor[
 				]
 			}
 
-			Transform	{ # PAREDE ENNTRE JANELAS
+			Transform	{ # PAREDE ENTRE JANELAS
 				scale 2 2 1
 				translation	0 0 0
 				children [
@@ -207,3 +207,4 @@ PROTO CourseDeptRoomRightSideDoor[
 		]
 	}
 }
+							 

@@ -279,3 +279,4 @@ PROTO SimpleTwoSignedDoor[
 		ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
 	}
 }
+						
