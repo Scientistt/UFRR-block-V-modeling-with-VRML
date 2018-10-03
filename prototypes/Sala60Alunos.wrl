@@ -39,207 +39,231 @@ PROTO Sala_60[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
+	exposedField SFColor detailColor .5 .16 .2
 	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
 	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
 ]{
 	Transform {
 		children [
 
-		#PAREDE ESQUERDA
-		Transform {
-			translation	-9.85 0 -3.04
-			rotation 0 1 0  1.57
-			scale 6.2 3 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			Transform{ 
+				scale .5 3 1
+				translation	0 0 -6.52
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
 
-		#PAREDE DIREITA
-		Transform {
-			translation 0 0 -3.04
-			rotation 0 1 0  1.57
-			scale 6.2 3 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			Transform{ 
+				scale .5 3 1
+				translation	-5 0 -6.52
+				rotation 0 1 0 1.57
+				children [
+					SimpleWall {
+						insideColor	IS detailColor
+						outsideColor IS	detailColor
+						sideColor IS detailColor
+					}
+				]
+			}
 
-		#PAREDE FRENTE_SALA
-		Transform {
-			translation	-5.35 0 0
-		#	translation	5 -0.8 -6.205
-			scale 9.05 3 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE ESQUERDA
+			Transform {
+				translation	-9.85 0 -3.04
+				rotation 0 1 0  1.57
+				scale 6.2 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE FRENTE_SALA_CIMA
-		Transform {
-			#translation	-.63 -0.8 -0.08
-			translation -.48 .7 0
-			scale .8 1.6 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE DIREITA
+			Transform {
+				translation 0 0 -3.04
+				rotation 0 1 0  1.57
+				scale 6.2 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_SALA_BAIXO 
+			#PAREDE FRENTE_SALA
+			Transform {
+				translation	-5.35 0 0
+				scale 9.05 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		Transform {
-			translation -4.85 -1.1 -6.2
-			#translation 0 .72 -6.205
-			scale 9.84 .8 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE FRENTE_SALA_CIMA
+			Transform {
+				translation -.48 .7 0
+				scale .8 1.6 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_SALA_CIMA
-		Transform {
-			translation	-4.85 1.1 -6.2
-			scale 9.85 .8 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE COSTA_SALA_BAIXO 
 
-		#PAREDE COSTA_MEIO_DIR
-		Transform {
-			translation	-0.05 0.05 -6.2
-			scale .25 1.5 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			Transform {
+				translation -4.85 -1.1 -6.2
+				scale 9.84 .8 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_MEIO_0
-		Transform {
-			translation	-2.55 0.05 -6.2
-			scale 2.2 2 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE COSTA_SALA_CIMA
+			Transform {
+				translation	-4.85 1.1 -6.2
+				scale 9.85 .8 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_MEIO_1
-		Transform {
-			translation	-5 0.05 -6.2
-			scale .2 1.5 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE COSTA_MEIO_DIR
+			Transform {
+				translation	-0.05 0.05 -6.2
+				scale .25 1.5 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_MEIO_3
-		Transform {
-			translation	-7.45 0.05 -6.2
-			scale 2.1 1.5 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE COSTA_MEIO_0
+			Transform {
+				translation	-2.55 0.05 -6.2
+				scale 2.2 2 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
-		#PAREDE COSTA_MEIO_ESQ
-		Transform {
-			translation	-9.823 0 -6.2
-			scale .2 3 1
-			children [
-				SimpleWall {
-					sideColor IS sideColor
-					insideColor	IS insideColor
-					outsideColor IS outsideColor
-				}
-			]
-		}
+			#PAREDE COSTA_MEIO_1
+			Transform {
+				translation	-5 0.05 -6.2
+				scale .2 1.5 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+
+			#PAREDE COSTA_MEIO_2
+			Transform {
+				translation	-7.45 0.05 -6.2
+				scale 2.1 1.5 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
+
+			#PAREDE COSTA_MEIO_ESQ
+			Transform {
+				translation	-9.823 0 -6.2
+				scale .2 3 1
+				children [
+					SimpleWall {
+						sideColor IS sideColor
+						insideColor	IS insideColor
+						outsideColor IS outsideColor
+					}
+				]
+			}
 
 
-		#PORTA
-		Transform {
-			translation	-0.45 -0.8 0
-			children [
-				SimpleOneSignedDoor {}
-			]
-		}
+			#PORTA
+			Transform {
+				translation	-0.45 -0.8 0
+				children [
+					SimpleOneSignedDoor {}
+				]
+			}
 
-		#JANELA 0
-		Transform {
-			rotation 0 1 0  3.14
-			translation	-0.4 0 -6.2
-			children [
-				GlassWindow {}
-			]
-		}
+			#JANELA 0
+			Transform {
+				rotation 0 1 0  3.14
+				translation	-0.4 0 -6.2
+				children [
+					GlassWindow {}
+				]
+			}
 
-		#JANELA 1
-		Transform {
-			rotation 0 1 0  3.14
-			translation	-3.85 0 -6.2
-			children [
-				GlassWindow {}
-			]
-		}
+			#JANELA 1
+			Transform {
+				rotation 0 1 0  3.14
+				translation	-3.85 0 -6.2
+				children [
+					GlassWindow {}
+				]
+			}
 
-		#JANELA 2
-		Transform {
-			rotation 0 1 0  3.14
-			translation	-5.35 0 -6.2
-			children [
-				GlassWindow {}
-			]
-		}
+			#JANELA 2
+			Transform {
+				rotation 0 1 0  3.14
+				translation	-5.35 0 -6.2
+				children [
+					GlassWindow {}
+				]
+			}
 
-		#JANELA 3
-		Transform {
-			rotation 0 1 0  3.14
-			translation	-8.7 0 -6.2
-			children [
-				GlassWindow {}
-			]
-		}
-	]
-}
+			#JANELA 3
+			Transform {
+				rotation 0 1 0  3.14
+				translation	-8.7 0 -6.2
+				children [
+					GlassWindow {}
+				]
+			}
+		]
+	}
 }
 
 Sala_60{}
