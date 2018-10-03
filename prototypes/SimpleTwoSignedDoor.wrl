@@ -290,3 +290,4 @@ PROTO SimpleTwoSignedDoor[
 		ROUTE touchSensorDefinition.touchTime TO soundDefinition.startTime
 	}
 }
+						
