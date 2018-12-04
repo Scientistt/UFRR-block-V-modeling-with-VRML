@@ -35,7 +35,7 @@ EXTERNPROTO GlassWindow[
 
 
 
-PROTO Sala_60_inv[
+PROTO Sala_530[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
@@ -74,7 +74,7 @@ PROTO Sala_60_inv[
 
 			#PAREDE ESQUERDA
 			Transform {
-				translation	-9.85 0 3.04
+				translation	-7.24 0 3.035
 				rotation 0 1 0  1.57
 				scale 6.2 3 1
 				children [
@@ -88,7 +88,7 @@ PROTO Sala_60_inv[
 
 			#PAREDE DIREITA
 			Transform {
-				translation 0 0 3.04
+				translation 0 0 3.035
 				rotation 0 1 0  1.57
 				scale 6.2 3 1
 				children [
@@ -102,8 +102,8 @@ PROTO Sala_60_inv[
 
 			#PAREDE FRENTE_SALA
 			Transform {
-				translation	-5.35 0 0
-				scale 9.05 3 1
+				translation	-4 0 0
+				scale 6.57 3 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -115,7 +115,7 @@ PROTO Sala_60_inv[
 
 			#PAREDE FRENTE_SALA_CIMA
 			Transform {
-				translation -.48 .7 0
+				translation -.4 .7 0
 				scale .8 1.6 1
 				children [
 					SimpleWall {
@@ -129,8 +129,8 @@ PROTO Sala_60_inv[
 			#PAREDE COSTA_SALA_BAIXO 
 
 			Transform {
-				translation -4.85 -1.1 6.2
-				scale 9.84 .8 1
+				translation -3.623 -1.1 6.2
+				scale 7.38 .8 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -142,8 +142,8 @@ PROTO Sala_60_inv[
 
 			#PAREDE COSTA_SALA_CIMA
 			Transform {
-				translation	-4.85 1.1 6.2
-				scale 9.85 .8 1
+				translation	-3.623 1.1 6.2
+				scale 7.38 .8 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -192,23 +192,10 @@ PROTO Sala_60_inv[
 				]
 			}
 
-			#PAREDE COSTA_MEIO_2
-			Transform {
-				translation	-7.45 0.05 6.2
-				scale 2.1 1.5 1
-				children [
-					SimpleWall {
-						sideColor IS sideColor
-						insideColor	IS insideColor
-						outsideColor IS outsideColor
-					}
-				]
-			}
-
 			#PAREDE COSTA_MEIO_ESQ
 			Transform {
-				translation	-9.823 0 6.2
-				scale .2 3 1
+				translation	-6.812 0.05 6.2
+				scale 1 1.5 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -217,12 +204,11 @@ PROTO Sala_60_inv[
 					}
 				]
 			}
-
 
 			#PORTA
 			Transform {
-				translation	-0.45 -0.8 0
 				rotation 0 1 0  3.14
+				translation	-0.45 -0.8 0
 				children [
 					SimpleOneSignedDoor {}
 				]
@@ -230,31 +216,21 @@ PROTO Sala_60_inv[
 
 			#JANELA 0
 			Transform {
-				translation	-0.4 0 6.2
+				translation	-1.2 0 6.2
 				children [
 					GlassWindow {}
 				]
 			}
-
 			#JANELA 1
 			Transform {
-				translation	-3.85 0 6.2
+				translation	-4.65 0 6.2
 				children [
 					GlassWindow {}
 				]
 			}
-
 			#JANELA 2
 			Transform {
-				translation	-5.35 0 6.2
-				children [
-					GlassWindow {}
-				]
-			}
-
-			#JANELA 3
-			Transform {
-				translation	-8.7 0 6.2
+				translation	-6.15 0 6.2
 				children [
 					GlassWindow {}
 				]
@@ -263,4 +239,4 @@ PROTO Sala_60_inv[
 	}
 }
 
-Sala_60_inv{}
+Sala_530{}

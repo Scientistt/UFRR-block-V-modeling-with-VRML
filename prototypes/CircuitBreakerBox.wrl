@@ -1,0 +1,309 @@
+#VRML V2.0 utf8
+
+PROTO CircuitBreakerBox[
+	exposedField MFString title1 ["CHAVE DAS SALAS"]
+	exposedField MFString title2 ["525 - 526 - 527 - 528 - 529 - 530"]
+	exposedField MFString NUM1_3 ["1	    2	    3"]
+	exposedField MFString NUM4_6 ["4	    5	    6"]
+	exposedField MFString NUM7_9 ["7	    8	    9"]
+	exposedField MFString NUM_0  ["__ 	    0	   OK"]
+	exposedField MFString brand ["OLIPE"]
+	exposedField SFColor outerColor .6 .6 .6
+	exposedField SFColor mainColor .7 .7 .7
+	exposedField SFColor brandColor .6 .6 .6
+	exposedField SFColor textColor 0 0 0
+	exposedField SFColor labelColor 1 1 1
+]
+{
+	Transform {
+		children [
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor IS outerColor
+					}
+					
+				}
+				geometry Box {
+					size .6 .8 .5
+				}
+			}
+			
+			DEF	doorDefinition Transform {
+				translation	0 0 .263
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS	mainColor
+							}
+			
+						}
+						geometry Box {
+							size .5 .7 0.02
+						}
+					}
+					#SECRET
+					Transform {
+						translation	-0.04 0.1 0.005
+						children [
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	brandColor
+									}
+			
+								}
+								geometry Box {
+									size .27 .18 0.02
+								}
+							}
+							Transform {
+								translation	0.065 0 0.01
+								children [
+									Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor 0 0 0
+											}
+			
+										}
+										geometry Box {
+											size .09 .13 0.02
+										}
+									}	
+								]
+							}
+							Transform {
+								translation	-0.06 0.04 0.01
+								children [
+									Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor 0 0 0
+											}
+			
+										}
+										geometry Box {
+											size .1 .04 0.001					
+										}
+									}
+									#NUMEROS
+									Transform {
+										translation	0.125 0 0.015
+										children [
+												Shape {
+												appearance Appearance {
+													material Material {
+														diffuseColor IS labelColor
+													}
+
+												}
+												geometry Text {
+													string IS NUM1_3
+													fontStyle FontStyle {
+														justify	"MIDDLE"
+														size 0.03
+													}
+												}
+											}
+										]
+									}
+									
+									Transform {
+										translation	0.125 -0.025 0.015
+										children [
+												Shape {
+												appearance Appearance {
+													material Material {
+														diffuseColor IS labelColor
+													}
+
+												}
+												geometry Text {
+													string IS NUM4_6
+													fontStyle FontStyle {
+														justify	"MIDDLE"
+														size 0.03
+													}
+												}
+											}
+										]
+									}
+									
+									Transform {
+										translation	0.125 -0.05 0.015
+										children [
+												Shape {
+												appearance Appearance {
+													material Material {
+														diffuseColor IS labelColor
+													}
+
+												}
+												geometry Text {
+													string IS NUM7_9
+													fontStyle FontStyle {
+														justify	"MIDDLE"
+														size 0.03
+													}
+												}
+											}
+										]
+									}
+							
+									Transform {
+										translation	0.125 -0.075 0.015
+										children [
+												Shape {
+												appearance Appearance {
+													material Material {
+														diffuseColor IS labelColor
+													}
+
+												}
+												geometry Text {
+													string IS NUM_0
+													fontStyle FontStyle {
+														justify	"MIDDLE"
+														size 0.02
+													}
+												}
+											}
+										]
+									}	    
+									####				
+								]
+							}
+
+						]
+					}
+
+					#INFORMATIVO
+					Transform {
+						translation	0 -0.2 .005
+						children [
+
+							Shape {
+								appearance Appearance {
+									material Material {
+										diffuseColor IS	labelColor
+									}
+	
+								}
+								geometry Box {
+									size .4 .1 0.02
+								}
+							}
+					
+							Transform {
+								translation	0 0 0.015
+								children [
+										Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor IS textColor
+											}
+	
+										}
+										geometry Text {
+											string IS title1
+											fontStyle FontStyle {
+												justify	"MIDDLE"
+												size 0.03
+											}
+										}
+									}
+								]
+							}
+
+							Transform {
+								translation	0 -0.03 0.015
+								children [
+										Shape {
+										appearance Appearance {
+											material Material {
+												diffuseColor IS textColor
+											}
+	
+										}
+										geometry Text {
+											string IS title2
+											fontStyle FontStyle {
+												justify	"MIDDLE"
+												size 0.03
+											}
+										}
+									}
+								]
+							}
+						
+						]
+					}
+					###
+				]
+			}
+			Transform {
+				translation	0 0 .25
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor 0 0 0
+							}
+			
+						}
+						geometry Box {
+							size .5 .7 0.01
+						}
+					}
+				]
+			}			
+			
+
+		 DEF	touchSensorDefinition TouchSensor{
+				enabled	TRUE
+			}
+			DEF	ScriptDefinition Script	{
+
+				eventIn	SFBool touchedDoor
+				field SFBool isOpen FALSE
+				field SFNode door USE doorDefinition
+
+				field SFInt32 x 0
+				field SFInt32 y 1
+				field SFInt32 z 2
+				field SFInt32 value 3
+				field SFFloat openDegree 1.2
+
+				url	"javascript:
+					function touchedDoor(action){
+						if(action){
+							if(isOpen){
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = 0
+								door.translation[z] = .26
+								door.translation[x] = 0
+							}
+							else{
+								door.rotation[x] = 0
+								door.rotation[y] = 1
+								door.rotation[z] = 0
+								door.rotation[value] = openDegree
+								door.translation[z] = .48
+								door.translation[x] = 0.15
+							}
+							isOpen = !isOpen
+						}
+						
+					}					
+				"
+			}
+		]
+	   ROUTE touchSensorDefinition.isActive TO ScriptDefinition.touchedDoor
+	}
+}
+
+CircuitBreakerBox {}

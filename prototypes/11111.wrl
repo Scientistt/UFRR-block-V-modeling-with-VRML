@@ -91,42 +91,41 @@ EXTERNPROTO ChairIPack[
 ]["SimpleWall.wrl"]
 
 
+#	#PAREDE E PORTA
 
+#Transform {
+#	translation	0 0 0
+#	children [
+#		Transform {
+#			scale 1 2.1 1
+#			children [
+#				SimpleWall {}
+#			]
+#		}
+#		Transform {
+#			translation	1.05 0 0
+#			children [
+#				SimpleTwoSignedDoor {signITitle "Sala 532" signIITitle ["Depto de " "Computação"]}
+#			]
+#		}
+#		Transform {
+#			scale 1 2.1 1
+#			translation	2.1 0 0
+#			children [
+#				SimpleWall {}
+#			]
+#		}
+#		Transform {
+#			scale 3.1 1 1
+#			translation	1.05 1.55 0
+#			children [
+#				SimpleWall {}
+#			]
+#		}
+#	]
+#}
 
-
-
-
-Transform {
-	translation	0 0 0
-	children [
-		Transform {
-			scale 1 2.1 1
-			children [
-				SimpleWall {}
-			]
-		}
-		Transform {
-			translation	1.05 0 0
-			children [
-				SimpleTwoSignedDoor {signITitle "Sala 532" signIITitle ["Depto de " "Computação"]}
-			]
-		}
-		Transform {
-			scale 1 2.1 1
-			translation	2.1 0 0
-			children [
-				SimpleWall {}
-			]
-		}
-		Transform {
-			scale 3.1 1 1
-			translation	1.05 1.55 0
-			children [
-				SimpleWall {}
-			]
-		}
-	]
-}
+#	#PORTA DE EMERGENCIA
 
 #Transform {
 #	translation	-9 0 0
@@ -135,6 +134,7 @@ Transform {
 #	]
 #}
 
+#	#UMA CADEIRA
 #Transform {
 #	translation	-6 0 0
 #	children [
@@ -163,17 +163,10 @@ Transform {
 #	]
 #}
 
-Transform {
-	translation	6 0 0
-	children [
-		SimpleWall {}
-	]
-}
-
 #Transform {
-#	translation	9 0 0
+#	translation	6 0 0
 #	children [
-#		CircuitBreaker {}
+#		SimpleWall {}
 #	]
 #}
 
@@ -185,7 +178,7 @@ Transform {
 #}
 
 
-##################
+###################
 
 #Transform {
 #	translation	-20 0 -2
@@ -208,6 +201,7 @@ Transform {
 #	]
 #}
 
+#PORTA DE VIDRO
 #Transform {
 #	translation	-3 0 -2
 #	children [
@@ -215,6 +209,8 @@ Transform {
 #	]
 #}
 
+
+#PORTA AZUL E BRANCA
 #Transform {
 #	translation	0 0 -2
 #	children [
@@ -222,6 +218,7 @@ Transform {
 #	]
 #}
 
+#PORTA AZUL
 #Transform {
 #	translation	3 0 -2
 #	children [
@@ -229,6 +226,7 @@ Transform {
 #	]
 #}
 
+#PORTA AZUL COM DOIS NOMES
 #Transform {
 #	translation	6 0 -2
 #	children [
@@ -236,13 +234,15 @@ Transform {
 #	]
 #}
 
-#Transform {
-#	translation	9 0 -2
-#	children [
-#		CircuitBreaker {}
-#	]
-#}
+#CAIXA DE FORCA
+Transform {
+	translation	9 0 -2
+	children [
+		CircuitBreaker {}
+	]
+}
 
+#JANELA
 #Transform {
 #	translation	12 0 -2
 #	children [
@@ -251,7 +251,7 @@ Transform {
 #}
 
 
-
+ ##############################################
 
 
 
