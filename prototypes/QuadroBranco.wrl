@@ -1,0 +1,41 @@
+#VRML V2.0 utf8
+
+PROTO QuadroBranco[
+	exposedField SFColor outerColor 0 0 0
+	exposedField SFColor textColor  1 1 1
+]
+{
+	Transform {
+		children [
+			Shape {
+				appearance Appearance {
+					material Material {
+						diffuseColor IS outerColor
+					}
+					
+				}
+				geometry Box {
+					size 1.5 .7 0.01
+				}
+			}
+			
+			Transform {
+				translation	0 0 0.0025
+				children [
+					Shape {
+						appearance Appearance {
+							material Material {
+								diffuseColor IS textColor
+							}
+			
+						}
+						geometry Box {
+							size 1.44 .64 0.01
+						}
+					}
+				]
+			}					 
+		]
+
+	}
+}

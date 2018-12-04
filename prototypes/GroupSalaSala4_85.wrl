@@ -1,0 +1,74 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Sala4_85[
+	exposedField SFColor outsideColor
+	exposedField SFColor insideColor
+	exposedField SFColor sideColor
+	exposedField SFColor detailColor
+	exposedField MFString signTitle
+]["Sala4_85.wrl"]
+
+PROTO GroupSala4_85[
+   	exposedField SFColor outsideColor .9 .9 .9
+	exposedField SFColor insideColor .9 .9 .9
+	exposedField SFColor sideColor .9 .9 .9
+	exposedField SFColor detailColor .5 .16 .2
+	exposedField MFString signTitle531 ["Sala 531"]
+	exposedField MFString signTitle532 ["Sala 532"]
+	exposedField MFString signTitle533 ["Sala 533"]
+	exposedField MFString signTitle534 ["Sala 534"]
+]{
+	Transform{
+		children [
+			Transform {
+				children [
+					Sala4_85{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						signTitle IS signTitle531
+					}
+				]
+			}
+			Transform {
+				translation	-4.73 0 0
+				children [
+					Sala4_85{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						signTitle IS signTitle532
+					}
+				]
+			}
+			Transform {
+				translation -9.43 0 0 
+				children [
+					Sala4_85{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						signTitle IS signTitle533
+					}
+				]
+			}
+			Transform {
+				translation -14.15 0 0 
+				children [
+					Sala4_85{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						signTitle IS signTitle534
+					}
+				]
+			}
+		]
+	}
+}
+
+GroupSala4_85{}
