@@ -49,10 +49,10 @@ Viewpoint {
 
 BlockV{}
 
-Transform {
-	rotation 0 1 0 -.5
-	translation	-17.55 0 -15.3
-	children [
-		WaterClosed{}
-	]
-}
+#Transform {
+#	rotation 0 1 0 -.5
+#	translation	-17.55 0 -15.3
+#	children [
+#		WaterClosed{}
+#	]
+#}

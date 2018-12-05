@@ -35,13 +35,12 @@ EXTERNPROTO GlassWindow[
 
 
 
-PROTO Sala_middle_right[
+PROTO Sala7_20[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
 	exposedField SFColor detailColor .5 .16 .2
-	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
-	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
+	exposedField MFString rightDoorSignTitle ["Sala 5XX"]	
 ]{
 	Transform {
 		rotation 0 1 0 3.14
@@ -240,4 +239,4 @@ PROTO Sala_middle_right[
 	}
 }
 
-Sala_middle_right{}
+Sala7_20{}

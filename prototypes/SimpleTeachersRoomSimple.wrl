@@ -25,19 +25,18 @@ EXTERNPROTO SimpleOneSignedDoor[
 
 
 
-PROTO SimpleTeachersRoom[
+PROTO SimpleTeachersRoomSimple[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
-	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
-	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
+	exposedField MFString SignTitle ["Sala 5XX"]	
 ]{
 	Transform {
 		children [
 			
 			Transform{# PAREDE ENTRE AS JANELAS
-				translation -.02 0 0
-				scale 1.58 3 1
+				translation -.35 0 0
+				scale .9 3 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -57,21 +56,10 @@ PROTO SimpleTeachersRoom[
 					}
 				]
 			}
-			Transform{# PAREDE À DIREITA DA JANELA
-				translation 2.27 0 0
-				scale .455 3 1
-				children [
-					SimpleWall {
-						sideColor IS sideColor
-						insideColor	IS insideColor
-						outsideColor IS outsideColor
-					}
-				]
-			}
 
 			Transform{# PAREDE ACIMA DA JANELA
-				translation 0 1.12 0
-				scale 5 .757 1
+				translation -1.16 1.12 0
+				scale 2.5 .757 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -81,8 +69,8 @@ PROTO SimpleTeachersRoom[
 				]
 			}
 			Transform{# PAREDE ABAIXO DA JANELA
-				translation 0 -1.12 0
-				scale 5 .757 1
+				translation -1.16 -1.12 0
+				scale 2.5 .757 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -91,16 +79,9 @@ PROTO SimpleTeachersRoom[
 					}
 				]
 			}
-			# Window I
+			# Window
 			Transform{
 				translation	-1.85 0 .1
-				children [
-					GlassWindow{}
-				]
-			}
-			# Window II
-			Transform{
-				translation 1 0 .1
 				children [
 					GlassWindow{}
 				]
@@ -118,7 +99,7 @@ PROTO SimpleTeachersRoom[
 					}
 				]
 			}
-			Transform{# PAREDE CENTRAL
+			Transform{# PAREDE DIREITA
 				rotation 0 1 0 -1.57
 				translation	0 0 -3.175
 				scale 6.20 3 1
@@ -130,42 +111,21 @@ PROTO SimpleTeachersRoom[
 					}
 				]
 			}
-			Transform{# PAREDE DIREITA
-				rotation 0 1 0 1.57
-				translation	2.437 0 -3.175
-				scale 6.20 3 1
-				children [
-					SimpleWall {
-						sideColor IS sideColor
-						insideColor	IS insideColor
-						outsideColor IS outsideColor
-					}
-				]
-			}
-
 
 			Transform{ # RIGHT DOOR
 				translation -2 -.8 -6.27
 				rotation 0 1 0 3.14
 				
 				children [
-					SimpleOneSignedDoor	{signTitle IS rightDoorSignTitle }
+					SimpleOneSignedDoor	{signTitle IS SignTitle }
 				]
 			}
 
-			Transform{ # LEFT DOOR
-				translation 2 -.8 -6.27
-				rotation 0 1 0 3.14
-				
-				children [
-					SimpleOneSignedDoor	{signTitle IS leftDoorSignTitle}
-				]
-			}
 
 			Transform{# PAREDE DA FRENTE PARTE ALTA
 				rotation 0 1 0 3.14
-				translation	0 .72 -6.205
-				scale 5 1.56 1
+				translation	-1.25 .72 -6.205
+				scale 2.5 1.56 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor
@@ -177,8 +137,8 @@ PROTO SimpleTeachersRoom[
 
 			Transform{# PAREDE DA FRENTE PARTE BAIXA
 				rotation 0 1 0 3.14
-				translation	0 -.8 -6.205
-				scale 3.22 1.56 1
+				translation	-.8 -.8 -6.205
+				scale 1.61 1.56 1
 				children [
 					SimpleWall {
 						sideColor IS sideColor

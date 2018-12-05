@@ -1,0 +1,79 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO Sala7_20[
+	exposedField SFColor outsideColor
+	exposedField SFColor insideColor 
+	exposedField SFColor sideColor
+	exposedField SFColor detailColor
+	exposedField MFString rightDoorSignTitle
+]["Sala7_20.wrl"]
+
+EXTERNPROTO SimpleTeachersRoomSimple[
+	exposedField SFColor outsideColor
+	exposedField SFColor insideColor
+	exposedField SFColor sideColor
+	exposedField MFString SignTitle	
+]["SimpleTeachersRoomSimple.wrl"]
+
+PROTO GroupAlunoProf[
+   	exposedField SFColor outsideColor .9 .9 .9
+	exposedField SFColor insideColor .9 .9 .9
+	exposedField SFColor sideColor .9 .9 .9
+	exposedField SFColor detailColor .5 .16 .2
+	exposedField MFString signTitle524 ["Sala 524"]
+	exposedField MFString signTitle523 ["Sala 523"]
+	exposedField MFString signTitle522 ["Sala 522"]
+	exposedField MFString signTitle521 ["Sala 521"]
+]{
+	Transform{
+		children [
+			Transform {
+				children [
+					Sala7_20{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						rightDoorSignTitle IS signTitle524
+					}
+				]
+			}
+			Transform {
+				translation	-2.35 0 -6.2
+				rotation 0 1 0 3.14
+				children [
+					SimpleTeachersRoomSimple{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						SignTitle IS signTitle523
+					}
+				]
+			}
+			Transform {
+				translation -9.5 0 0 
+				children [
+					Sala7_20{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						detailColor	IS detailColor
+						rightDoorSignTitle IS signTitle522
+					}
+				]
+			}
+			Transform {
+				translation -12 0 -6.2 
+				rotation 0 1 0 3.14
+				children [
+					SimpleTeachersRoomSimple{
+						outsideColor IS	outsideColor
+						insideColor	IS insideColor
+						sideColor IS sideColor
+						SignTitle IS signTitle523
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,53 @@
+#VRML V2.0 utf8
+
+EXTERNPROTO CourseDeptRoomRightSideDoorSimple[
+]["CourseDeptRoomRightSideDoorSimple.wrl"]
+
+EXTERNPROTO GroupAlunoProf[
+   	exposedField SFColor outsideColor 
+	exposedField SFColor insideColor
+	exposedField SFColor sideColor
+	exposedField SFColor detailColor
+	exposedField MFString signTitle524 
+	exposedField MFString signTitle523 
+	exposedField MFString signTitle522
+	exposedField MFString signTitle521
+]["GroupAlunoProf.wrl"]
+
+
+EXTERNPROTO GroupSala4_85[
+   	exposedField SFColor outsideColor
+	exposedField SFColor insideColor
+	exposedField SFColor sideColor
+	exposedField SFColor detailColor
+	exposedField MFString signTitle531
+	exposedField MFString signTitle532
+	exposedField MFString signTitle533
+	exposedField MFString signTitle534
+]["GroupSala4_85.wrl"]
+
+
+PROTO SalaMiddle[
+]{
+	Transform{
+		children [
+			
+			Transform	{ 
+				translation	-7 0 0.79
+				rotation 0 1 0 3.14
+				children [
+					GroupAlunoProf {}
+				]
+			}
+			Transform	{ 
+				translation	0 0 -0.79
+				children [
+					GroupSala4_85 {}
+				]
+			}
+
+		]
+	}
+}
+
+SalaMiddle{}
