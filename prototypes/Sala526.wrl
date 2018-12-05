@@ -35,12 +35,11 @@ EXTERNPROTO GlassWindow[
 
 
 
-PROTO Sala_526[
+PROTO Sala526[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
 	exposedField SFColor detailColor .5 .16 .2
-	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
 	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
 ]{
 	Transform {
@@ -240,4 +239,4 @@ PROTO Sala_526[
 	}
 }
 
-Sala_526{}
+Sala526{}

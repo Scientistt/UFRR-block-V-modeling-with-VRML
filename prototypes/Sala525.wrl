@@ -39,8 +39,7 @@ PROTO Sala525[
 	exposedField SFColor outsideColor .9 .9 .9
 	exposedField SFColor insideColor .9 .9 .9
 	exposedField SFColor sideColor .9 .9 .9
-	exposedField SFColor detailColor .5 .16 .2
-	exposedField MFString rightDoorSignTitle ["Sala 5XX"]
+	exposedField SFColor detailColor .5 .16 .2		   
 	exposedField MFString leftDoorSignTitle ["Sala 5XX"]	
 ]{
 	Transform {
